@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
@@ -27,6 +28,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -153,30 +155,31 @@ fun QuizScreen(
 
         Spacer(modifier = Modifier.padding(top = 16.dp))
 
+        Column {
+            QuizInterface(qNumber = 1, onButtonClicked = {}, modifier = Modifier)
 
-//        quiz interface
-        QuizInterface(qNumber = 1, onButtonClicked = {} , modifier = Modifier)
+            Spacer(modifier = Modifier.padding(top = 16.dp))
+
+            Row(
+                modifier = Modifier
+                    .navigationBarsPadding()
+                    .fillMaxWidth(),
+            ) {
+                ButtonBox1(
+                    modifier = Modifier.padding(start = 8.dp, top = 100.dp),
+                    text = "Previous",
+                    onClick = {}
+                )
+                Spacer(modifier = Modifier.padding(60.dp))
+                ButtonBox1(
+                    modifier = Modifier.padding(end = 8.dp, top = 100.dp),
+                    text = "Next",
+                    onClick = {}
+                )
+            }
 
 
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .navigationBarsPadding()
-                .padding(16.dp)
-                .navigationBarsPadding()
-        ) {
-            ButtonBox1(
-                text = "previous",
-                modifier = Modifier,
-                onClick = {}
-            )
-            Spacer(modifier = Modifier.padding(16.dp))
-            ButtonBox1(
-                text = "next",
-                modifier = Modifier,
-                onClick = {}
-            )
         }
     }
 }
